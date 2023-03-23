@@ -3,7 +3,8 @@ abstract class Musico
 {
     public string Nombre {get;set;}
     public Musico (string n){Nombre=n;}
-    public void Saluda(){Console.WriteLine($"Hola soy {Nombre}");}
+    public virtual string GetSaludo() => "Hola, soy " + Nombre;
+    public virtual void Saluda(){Console.WriteLine($"Hola soy {Nombre}");}
     public /*virtual*/ abstract void Toca(); //Metodos abstractos no tienen implementación, deben estar en clases abstractas para existir.
     /*{
         Console.WriteLine($"{Nombre} tocando su instrumento");
@@ -34,6 +35,8 @@ class Baterista:Musico
     {
             Console.WriteLine($"{Nombre} tocando su {bateria}");
     }
+        public override string GetSaludo() => base.GetSaludo() + " y soy baterista";
+        public override /*virtual*/ void Saluda(){Console.WriteLine(GetSaludo());}
 }
 class Program
 {
