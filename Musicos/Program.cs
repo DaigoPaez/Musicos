@@ -4,7 +4,7 @@ abstract class Musico
     public string Nombre {get;set;}
     public Musico (string n){Nombre=n;}
     public virtual string GetSaludo() => "Hola, soy " + Nombre;
-    public virtual void Saluda(){Console.WriteLine($"Hola soy {Nombre}");}
+    public virtual void Saluda(){Console.WriteLine(GetSaludo());}
     public /*virtual*/ abstract void Toca(); //Metodos abstractos no tienen implementación, deben estar en clases abstractas para existir.
     /*{
         Console.WriteLine($"{Nombre} tocando su instrumento");
